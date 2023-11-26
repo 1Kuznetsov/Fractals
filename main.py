@@ -218,12 +218,13 @@ def new_fractal_2_2(n, size):
 
 if __name__ == '__main__':
     turtle.tracer(0)
+    print(ru.FUNCTIONS)
     action = int(input(ru.CHOICE))
     deep = int(input(ru.ORDER))
     length = float(input(ru.SIZE))
 
     turtle.up()
-    turtle.goto(-300, 0)
+    turtle.goto(-200, 0)
     turtle.down()
 
     if action == 1:
