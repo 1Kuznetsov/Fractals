@@ -1,5 +1,9 @@
+# Kuznetsov Igor - 100,
 import turtle
 import ru_local as ru
+
+turtle.hideturtle()
+
 
 def square(order, size):
     if size <= 1:
@@ -170,9 +174,33 @@ def dragon(order, size, angle='-'):
         turtle.rt(45)
 
 
+def new_fractal(order, size):
+    if order == 0:
+        return turtle.fd(size)
+
+    turtle.fd(size)
+    turtle.lt(60)
+    new_fractal(order - 1, size)
+    turtle.lt(180)
+    new_fractal(order - 1, size)
+    turtle.lt(60)
+    new_fractal(order - 1, size)
+    turtle.lt(180)
+    new_fractal(order - 1, size)
+    turtle.lt(120)
+    new_fractal(order - 1, size)
+    turtle.lt(180)
+    new_fractal(order - 1, size)
+    turtle.lt(60)
+    new_fractal(order - 1, size)
+    turtle.lt(180)
+    new_fractal(order - 1, size)
+    turtle.lt(60)
+    turtle.fd(size)
+
+
 if __name__ == '__main__':
     turtle.tracer(0)
-
     action = int(input(ru.CHOICE))
     deep = int(input(ru.ORDER))
     length = float(input(ru.SIZE))
@@ -213,6 +241,12 @@ if __name__ == '__main__':
     if action == 9:
         levi_curve(deep, length)
 
+    elif action == 10:
+        turtle.up()
+        turtle.goto(-300, 0)
+        turtle.down()
+        new_fractal(deep, length)
+
     elif action == 11:
         turtle.up()
         turtle.goto(-300, 0)
@@ -221,4 +255,3 @@ if __name__ == '__main__':
 
     turtle.update()
     turtle.done()
-
