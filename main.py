@@ -1,14 +1,41 @@
 import turtle
 import ru_local as ru
 
-# def square(order, size):
-#     if order == 0:
-#         return turtle.fd(size)
-#
-#
-# def binary_tree(order, size):
-#     if  order == 0:
-#         return turtle.fd(size)
+def square(order, size):
+    if size <= 1:
+        return None
+    turtle.speed(500)
+    turtle.pensize(2)
+    for i in range(4):
+        turtle.forward(size)
+        turtle.rt(90)
+    turtle.up()
+    turtle.rt(10)
+    turtle.forward(size * 0.1)
+    turtle.down()
+    square(order*0.9, size * 0.9)
+
+def color_tree(order, size):
+
+  turtle.speed(600)
+  turtle.colormode(255)
+
+  cg = 255 - int(order * (250/6)) % 255
+  turtle.color(0, cg, 0)
+
+  if order == 0:
+    return None
+  turtle.forward(size)
+  turtle.right(45)
+  color_tree(order - 1, size * 0.6)
+  turtle.left(90)
+  color_tree(order - 1, size * 0.6)
+  turtle.right(45)
+  turtle.backward(size)
+
+def color_tree_2(order, size):
+    turtle.left(90)
+    color_tree(order, size)
 
 
 def fractal_branch(order, size):
@@ -67,21 +94,6 @@ def levi_curve(order, size):
     turtle.right(90)
     levi_curve(order - 1, size / 2)
     turtle.left(45)
-
-# def Mashas_new_quarter_square(order, size):
-#     for i in range(6):
-#         turtle.fd(size)
-#         turtle.rt(90)
-# def Mashas_new_quarter(order, size):
-#     if size <= 1:
-#         return None
-#
-#     turtle.speed(400)
-#     turtle.pensize(2)
-#
-#     Mashas_new_quarter_square(order, size)
-#     turtle.lt(5)
-#     return Mashas_new_quarter(order, 0.9 * size)
 
 
 def minkowski(order, size):
@@ -164,6 +176,12 @@ if __name__ == '__main__':
     action = int(input(ru.CHOICE))
     deep = int(input(ru.ORDER))
     length = float(input(ru.SIZE))
+
+    if action == 1:
+        square(deep, length)
+
+    if action == 2:
+        color_tree_2(deep, length)
 
     if action == 3:
         fractal_branch_2(deep, length)
