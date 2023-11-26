@@ -1,4 +1,4 @@
-# Kuznetsov Igor - 100,
+# Kuznetsov Igor - 100, Yadreeva Maria - 75
 import turtle
 import ru_local as ru
 
@@ -20,22 +20,20 @@ def square(order, size):
     square(order*0.9, size * 0.9)
 
 def color_tree(order, size):
+    turtle.speed(600)
+    turtle.colormode(255)
+    cg = 255 - int(order * (250/6)) % 255
+    turtle.color(0, cg, 0)
 
-  turtle.speed(600)
-  turtle.colormode(255)
-
-  cg = 255 - int(order * (250/6)) % 255
-  turtle.color(0, cg, 0)
-
-  if order == 0:
-    return None
-  turtle.forward(size)
-  turtle.right(45)
-  color_tree(order - 1, size * 0.6)
-  turtle.left(90)
-  color_tree(order - 1, size * 0.6)
-  turtle.right(45)
-  turtle.backward(size)
+    if order == 0:
+        return None
+    turtle.forward(size)
+    turtle.right(45)
+    color_tree(order - 1, size * 0.6)
+    turtle.left(90)
+    color_tree(order - 1, size * 0.6)
+    turtle.right(45)
+    turtle.backward(size)
 
 def color_tree_2(order, size):
     turtle.left(90)
@@ -198,6 +196,17 @@ def new_fractal(order, size):
     turtle.lt(60)
     turtle.fd(size)
 
+def new_fractal_2(n, size):
+    if n > 2:
+        angle = 360 / n
+
+        for n in range(0, n):
+            turtle.left(angle)
+            turtle.forward(size)
+def new_fractal_2_2(n, size):
+    for i in range(0, 100, 4):
+        new_fractal_2(n, i+10)
+        turtle.left(20)
 
 if __name__ == '__main__':
     turtle.tracer(0)
@@ -252,6 +261,10 @@ if __name__ == '__main__':
         turtle.goto(-300, 0)
         turtle.down()
         dragon(deep, length)
+
+    elif action == 12:
+        new_fractal_2_2(deep, length)
+
 
     turtle.update()
     turtle.done()
