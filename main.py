@@ -204,8 +204,8 @@ def new_fractal_2(n, size):
             turtle.left(angle)
             turtle.forward(size)
 def new_fractal_2_2(n, size):
-    for i in range(0, 100, 4):
-        new_fractal_2(n, i+10)
+    for i in range(0, 100, 5):
+        new_fractal_2(n, i)
         turtle.left(20)
 
 if __name__ == '__main__':
