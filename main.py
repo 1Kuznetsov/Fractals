@@ -196,6 +196,13 @@ def new_fractal(order, size):
     turtle.lt(60)
     turtle.fd(size)
 
+
+def snowflake(order, size):
+    for t in range(2):
+        ice_fractal_2(order, size)
+        turtle.rt(180)
+
+
 def new_fractal_2(n, size):
     if n > 2:
         angle = 360 / n
@@ -208,11 +215,16 @@ def new_fractal_2_2(n, size):
         new_fractal_2(n, i)
         turtle.left(20)
 
+
 if __name__ == '__main__':
     turtle.tracer(0)
     action = int(input(ru.CHOICE))
     deep = int(input(ru.ORDER))
     length = float(input(ru.SIZE))
+
+    turtle.up()
+    turtle.goto(-300, 0)
+    turtle.down()
 
     if action == 1:
         square(deep, length)
@@ -230,41 +242,28 @@ if __name__ == '__main__':
         snowflake_Koha(deep, length)
 
     if action == 6:
-        turtle.up()
-        turtle.goto(-700, 0)
-        turtle.down()
         minkowski(deep, length)
 
     elif action == 7:
-        turtle.up()
-        turtle.goto(-700, 0)
-        turtle.down()
         ice_fractal_1(deep, length)
 
     elif action == 8:
-        turtle.up()
-        turtle.goto(-700, 0)
-        turtle.down()
         ice_fractal_2(deep, length)
 
     if action == 9:
         levi_curve(deep, length)
 
     elif action == 10:
-        turtle.up()
-        turtle.goto(-300, 0)
-        turtle.down()
         new_fractal(deep, length)
 
     elif action == 11:
-        turtle.up()
-        turtle.goto(-300, 0)
-        turtle.down()
         dragon(deep, length)
 
     elif action == 12:
         new_fractal_2_2(deep, length)
 
+    elif action == 13:
+        snowflake(deep, length)
 
     turtle.update()
     turtle.done()
