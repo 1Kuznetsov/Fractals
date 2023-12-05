@@ -19,6 +19,7 @@ def square(order, size):
     turtle.down()
     square(order*0.9, size * 0.9)
 
+
 def color_tree(order, size):
     turtle.speed(600)
     turtle.colormode(255)
@@ -35,6 +36,7 @@ def color_tree(order, size):
     turtle.right(45)
     turtle.backward(size)
 
+
 def color_tree_2(order, size):
     turtle.left(90)
     color_tree(order, size)
@@ -50,7 +52,6 @@ def fractal_branch(order, size):
     turtle.pensize(3)
     turtle.speed(300)
 
-
     for i in range(order):
         turtle.forward(x)
         turtle.left(45)
@@ -62,6 +63,7 @@ def fractal_branch(order, size):
     turtle.forward(x)
     turtle.left(180)
     turtle.forward(size)
+
 
 def fractal_branch_2(order, size):
     turtle.up()
@@ -80,6 +82,7 @@ def Koch_curve(order, size):
     Koch_curve(order - 1, size / 3)
     turtle.lt(60)
     Koch_curve(order - 1, size / 3)
+
 
 def snowflake_Koha(order, size):
     for i in range(3):
@@ -210,6 +213,8 @@ def new_fractal_2(n, size):
         for n in range(0, n):
             turtle.left(angle)
             turtle.forward(size)
+
+
 def new_fractal_2_2(n, size):
     for i in range(0, 100, 5):
         new_fractal_2(n, i)
