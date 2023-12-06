@@ -5,7 +5,7 @@ FUNCTIONS = ' 1 - square \n' \
             ' 4 - Koch_curve \n' \
             ' 5 - snowflake_Koha\n' \
             ' 6 - minkowski \n' \
-            ' 7 - nice_fractal_1 \n' \
+            ' 7 - ice_fractal_1 \n' \
             ' 8 - ice_fractal_2  \n' \
             ' 9 - levi_curve \n' \
             ' 10 - new_fractal \n' \
